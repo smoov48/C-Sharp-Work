@@ -1,0 +1,87 @@
+using System;class Programm{
+    class kartoffel    {
+        private int Knollenzahl;
+
+        public kartoffel()
+        {
+            Knollenzahl = 5;
+        }
+
+        public void gefressenwerden()
+        {
+            if(Knollenzahl > 0)
+            {
+                Knollenzahl--;
+            }
+        }
+
+        public void ausgabe()
+        {
+            Console.WriteLine($"Knolle: {Knollenzahl}");
+        }
+
+       
+
+        class schwein        {
+            private int groesse;
+            private int gewicht;
+            private int saettigung;
+
+            public schwein()
+            {
+                groesse = 10;
+                gewicht = 25;
+                saettigung = 50;
+            }
+            public void wachsen()
+            {
+                groesse++;
+                gewicht++;
+                saettigung--;
+            }
+
+            public void fressen(kartoffel k)
+            {
+                k.gefressenwerden();
+                k.ausgabe();
+
+                saettigung++;
+                gewicht++;
+            }
+
+            public void ausgabe()
+            {
+                Console.WriteLine($"Groesse: {groesse}");
+                Console.WriteLine($"Gewicht: {gewicht}");
+                Console.WriteLine($"Sättigung: {saettigung}\n");
+            }
+        }
+        public static void Main()
+        {   
+            kartoffel meinkartoffel = new kartoffel();
+            schwein hugo = new schwein();
+             
+
+            Console.WriteLine("Status von mein Schwein");
+            hugo.ausgabe();
+
+            Console.WriteLine("Update:");
+            hugo.wachsen();
+            hugo.ausgabe();
+
+            Console.WriteLine("Wie viel Knollen ist verfügbar?");
+            meinkartoffel.ausgabe();
+
+           
+
+      
+        }
+
+    }
+
+}
+
+
+
+ 
+ 
