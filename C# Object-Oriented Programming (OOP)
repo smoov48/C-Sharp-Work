@@ -1,0 +1,59 @@
+class Customers
+{
+    private int id;
+    private string firstname;
+    private string familyname;
+    private int age;
+    private string email;
+
+    public Customers(int id, string firstname, string familyname, int age, string email)
+    {
+        this.id = id;
+        this.firstname = firstname;
+        this.familyname = familyname;
+        this.age = age;
+        this.email = email;
+    }
+    public void Status()
+    {
+        age++;
+    }
+
+    public void Text()
+    {
+        Console.WriteLine($"ID: {id}");
+        Console.WriteLine($"First-name: {firstname}");
+        Console.WriteLine($"Family-name: {familyname}");
+        Console.WriteLine($"Age: {age}");
+        Console.WriteLine($"Email: {email}");
+    }
+
+
+}
+
+class RunProgram
+{
+    static void Main()
+    {
+        Customers customers1 = new Customers(1, "Simone", " Nnadi", 18, "Nnadi@example.com");
+        Customers customers2 = new Customers(2, "Ikenna", "Peter", 20, "Peter@example.com");
+        Customers customers3 = new Customers(3, "Florence", "Maxmann", 34, "Maxmann@example.com");
+
+        Console.WriteLine("=== Customer Info ===");
+        Console.WriteLine("");
+        customers1.Text();
+        Console.WriteLine("");
+        customers2.Text();
+        Console.WriteLine("");
+        customers3.Text();
+
+
+        Console.WriteLine("");
+
+        Console.WriteLine("=== Updated status - Customer Info ===");
+        Console.WriteLine("");
+        customers1.Status();
+        customers1.Text();
+
+    }
+}
