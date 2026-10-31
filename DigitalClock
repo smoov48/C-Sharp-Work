@@ -1,6 +1,3 @@
-using System;
-using System.Runtime.CompilerServices;
-
 class ClockClass
 {
     private int hour { get; set; }
@@ -9,22 +6,48 @@ class ClockClass
 
     public ClockClass(int hour, int min, int sec)
     {
-        this.hour = hour;
-        this.min = min;
-        this.sec = sec;
+        if (hour >= 0 && hour < 24)
+        {
+            this.hour = hour;
+        }
+        else
+        {
+            Console.WriteLine("The Hours you put in dosen't exist.");
+        }
+
+        if (min >= 0 && min < 60)
+        {
+            this.min = min;
+        }
+        else
+        {
+            Console.WriteLine("The Minutes you put in dosen't exist.");
+        }
+
+        if (sec >= 0 && sec < 60)
+        {
+            this.sec = sec;
+        }
+        else
+        {
+            Console.WriteLine("The Seconds you put in dosen't exist.");
+        }
+
+
     }
 
     public void SetTime()
     {
         Console.WriteLine($"Time: {hour}:{min}:{sec}");
     }
+
 }
 
 class Run
 {
     static void Main()
     {
-        ClockClass Clock = new ClockClass(15, 25, 49);
+        ClockClass Clock = new ClockClass(22, 25, 49);
 
         Clock.SetTime();
     }
