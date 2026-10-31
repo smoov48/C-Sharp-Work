@@ -1,0 +1,31 @@
+using System;
+using System.Runtime.CompilerServices;
+
+class ClockClass
+{
+    private int hour { get; set; }
+    private int min { get; set; }
+    private int sec { get; set; }
+
+    public ClockClass(int hour, int min, int sec)
+    {
+        this.hour = hour;
+        this.min = min;
+        this.sec = sec;
+    }
+
+    public void SetTime()
+    {
+        Console.WriteLine($"Time: {hour}:{min}:{sec}");
+    }
+}
+
+class Run
+{
+    static void Main()
+    {
+        ClockClass Clock = new ClockClass(15, 25, 49);
+
+        Clock.SetTime();
+    }
+}
