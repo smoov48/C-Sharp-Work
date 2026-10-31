@@ -1,0 +1,66 @@
+class Zoo
+{
+    private string AnimalName { get; set; }
+    private int age { get; set; }
+    private int hungerbar { get; set; }
+
+    public Zoo(string animalname, int age, int hungerbar)
+    {
+        this.AnimalName = animalname;
+
+        this.age = age;
+
+        if (hungerbar >= 0 && hungerbar <= 10)
+        {
+            this.hungerbar = hungerbar;
+        }
+        else
+        {
+            Console.WriteLine($"Hungerbar not in the right order");
+        }
+    }
+
+    public void Growth()
+    {
+        if (hungerbar == 10)
+        {
+            Console.WriteLine("Error: Animal is full! Don't feed it anymore.");
+        }
+        else
+        {
+            hungerbar++;
+        }
+
+    }
+
+
+    public void Display()
+    {
+        Console.WriteLine($"");
+        Console.WriteLine($"==== Zoo Park ====");
+        Console.WriteLine($"");
+        Console.WriteLine($"Name: {AnimalName}");
+        Console.WriteLine($"Age: {age}");
+        Console.WriteLine($"Hungerbar: {hungerbar}");
+        Console.WriteLine($"");
+        Console.WriteLine($"===== End Display =====");
+        Console.WriteLine($"");
+        Console.WriteLine($"Info: 10 Hungerbar Maximum; 1 Hungerbar Minimum;");
+
+    }
+}
+
+class Run
+{
+    static void Main()
+    {
+        Zoo Zoo = new Zoo("Panda", 4, 5);
+
+        Zoo.Growth();
+        Zoo.Growth();
+        Zoo.Growth();
+
+        Zoo.Display();
+
+    }
+}
