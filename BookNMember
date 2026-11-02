@@ -1,0 +1,117 @@
+class Book
+{
+    public string title { get; set; }
+    private string author { get; set; }
+    private int copies { get; set; }
+
+    public Book(string title, string author, int copies)
+    {
+        this.title = title;
+        this.author = author;
+        this.copies = copies;
+
+    }
+
+    public void Lend()
+    {
+        if (copies == 0)
+        {
+            Console.WriteLine($"No more {title} remain.");
+        }
+        else
+        {
+
+            Console.WriteLine($"Title: {title}, Author: {author}, Copies: {copies}");
+
+        }
+    }
+
+    public void Return(Member member)
+    {
+        if (copies == 0)
+        {
+            Console.WriteLine("No Books retrun");
+        }
+        else
+        {
+            copies++;
+            Console.WriteLine($"{member.name} has return {title}.");
+            Console.WriteLine($"==== NEW INFO; Title: {title}, Author: {author}, Copies: {copies} ====");
+
+        }
+
+    }
+
+}
+
+class Member
+{
+    public string name { get; set; }
+    private int book_owned { get; set; }
+
+    public Member(string name, int book_owned)
+    {
+        this.name = name;
+        this.book_owned = book_owned;
+    }
+
+    public void borrow(Book book)
+    {
+        if (book_owned == 3)
+        {
+            Console.WriteLine($"{name} has reached maximum lends");
+        }
+        else
+        {
+            book_owned++;
+            Console.WriteLine($"{name} has now borrowed {book_owned}");
+
+
+        }
+
+    }
+
+    public void PrintBook(Book book)
+    {
+        Console.WriteLine($"{name} has {book_owned} books. Current Book: {book.title}");
+    }
+}
+
+class run
+{
+    static void Main()
+    {
+        Book Marvel = new Book("Spiderman", "Simone Ikenna Nnadi", 4);
+        Book batman = new Book("Batman: Year One", "Frank Miller", 3);
+        Book ironMan = new Book("Iron Man", "Stan Lee", 2);
+        Book blackPanther = new Book("Black Panther", "Ta-Nehisi Coates", 5);
+
+        Member Anna = new Member("Anna", 2);
+        Member Simone = new Member("Simone", 0);
+
+        Marvel.Lend();
+        batman.Lend();
+        blackPanther.Lend();
+        ironMan.Lend();
+
+        Console.WriteLine();
+
+        Simone.borrow(Marvel);
+        Simone.PrintBook(Marvel);
+
+        Console.WriteLine();
+
+        Anna.borrow(ironMan);
+        Anna.PrintBook(ironMan);
+
+        Console.WriteLine();
+
+        ironMan.Return(Anna);
+        
+
+
+
+
+
+    }
+}
